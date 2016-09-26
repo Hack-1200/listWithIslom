@@ -6,6 +6,17 @@ typedef struct Node{
 	struct Node *next;
 } node;
 
+void *create();
+void addToEnd(node*,tInfo);
+void delFromEnd(node*);
+void pr(node*);
+
+int main(){
+	node *root=create();
+
+
+}
+
 void *create(){
 	node *root;
 	root=(node*)malloc(sizeof(node));
@@ -14,10 +25,29 @@ void *create(){
 	return root;
 }
 
+void addToEnd(node *root,tInfo lx){
+	while(root->next!=NULL){
+		root=root->next;
+	}
 
-int main(){
-	node *root=create();
-
-
+	root->next=(node*)malloc(sizeof(node));
+	root->x=lx;
+	root->next->next=NULL;
 }
 
+void pr(node *root){
+	while(root->next!=NULL){
+		printf("%d ",root->x);
+		root=root->next;
+	}
+	printf("\n");
+}
+
+void delFromEnd(node* root){
+	while(root->next->next!=NULL){
+		root=root->next;
+	}
+	free(root->next);
+	root->next=NULL;
+	
+}
