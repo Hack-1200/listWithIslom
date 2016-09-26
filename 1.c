@@ -1,2 +1,13 @@
 #include <stdio.h>
-Islom
+#include <stdlib.h>
+typedef int tInfo;
+typedef struct Node{
+	tInfo x;
+	struct Node *next;
+} node;
+
+
+int main(){
+	
+
+}
